@@ -14,8 +14,9 @@ public class Footwear extends Item {
 		super(name);
 	}
 
-	public Footwear(String name, String description, String color, String material, double size) {
-		super(name, description);
+	public Footwear(String name, String description, Brand brand,
+			String color, String material, double size) {
+		super(name, description, brand);
 		this.color = color;
 		this.material = material;
 		this.size = size;
@@ -35,8 +36,11 @@ public class Footwear extends Item {
 
 	@Override
 	public String toString() {
-		return "Footwear [ItemId=" + getItemId() + ", name=" + getName() + ", description="
-				+ getDescription() + ", color=" + color + ", material=" + material + ", size=" + size + "]";
+		return "Footwear [ItemId=" + getItemId() 
+				+ ", name=" + getName()	+ ", description=" + getDescription() 
+				+ ", brand=" + getBrand()
+				+ ", color=" + color + ", material=" + material 
+				+ ", size=" + size + "]";
 	}
 	
 	

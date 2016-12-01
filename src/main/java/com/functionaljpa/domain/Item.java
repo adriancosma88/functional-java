@@ -1,7 +1,9 @@
 package com.functionaljpa.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
 /**
@@ -18,16 +20,20 @@ public class Item {
 	private String name;
 	private String description;
 	
+	@ManyToOne(cascade = {CascadeType.ALL})
+	private Brand brand;
+	
 	public Item() {	}
 	
 	public Item(String name) {
-		this(name, null);
+		this(name, null, null);
 	}
 	
-	public Item(String name, String description) {
+	public Item(String name, String description, Brand brand) {
 		super();
 		this.name = name;
 		this.description = description;
+		this.brand = brand;
 	}
 	
 	public int getItemId() {
@@ -39,9 +45,13 @@ public class Item {
 	public String getDescription() {
 		return description;
 	}
+	public Brand getBrand() {
+		return this.brand;
+	}
 
 	@Override
 	public String toString() {
-		return "Item [itemId=" + itemId + ", name=" + name + ", description=" + description + "]";
+		return "Item [itemId=" + itemId + ", name=" + name + ","
+				+ " description=" + description + "brand=" + brand + "]";
 	}	
 }

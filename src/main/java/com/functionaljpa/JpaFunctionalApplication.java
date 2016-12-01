@@ -9,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+import com.functionaljpa.domain.Brand;
 import com.functionaljpa.domain.Footwear;
 import com.functionaljpa.repository.FootwearRepository;
 
@@ -24,10 +25,11 @@ public class JpaFunctionalApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... arg0) throws Exception {
+		Brand nike = new Brand("Nike");
 		List<Footwear> footwearList = Arrays.asList(
-				new Footwear("Nike Running Shoes", "Good Running Shoes",
+				new Footwear("Running Shoes", "Good Running Shoes", nike,
 						"Blue", "Synthetic", 41),
-				new Footwear("Nike Tennis Shoes", "Good Running Shoes",
+				new Footwear("Tennis Shoes", "Good Running Shoes", nike,
 						"White", "Synthetic", 42)
 				);
 		
