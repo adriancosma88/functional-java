@@ -2,13 +2,23 @@ package com.functionaljpa.domain;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
+/**
+ * Super class for warehouse items.
+ * 
+ * {@linkplain MappedSuperclass} is required by JPA. This allows
+ * the child classes to use the id from the {@link Item} class. 
+ */
+@MappedSuperclass
 public class Item {
 	@Id
 	@GeneratedValue
 	private int itemId;	
 	private String name;
-	private String description;	
+	private String description;
+	
+	public Item() {	}
 	
 	public Item(String name) {
 		this(name, null);

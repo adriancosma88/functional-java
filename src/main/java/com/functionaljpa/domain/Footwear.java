@@ -1,9 +1,14 @@
 package com.functionaljpa.domain;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Footwear extends Item {
 	private String color;
 	private String material;
 	private double size;
+	
+	public Footwear() {	}
 	
 	public Footwear(String name) {
 		super(name);
