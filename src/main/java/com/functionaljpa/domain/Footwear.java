@@ -4,8 +4,8 @@ import javax.persistence.Entity;
 
 @Entity
 public class Footwear extends Item {
-	private String color;
-	private String material;
+	private Color color;
+	private Material material;
 	private double size;
 	
 	public Footwear() {	}
@@ -15,18 +15,18 @@ public class Footwear extends Item {
 	}
 
 	public Footwear(String name, String description, Brand brand,
-			String color, String material, double size) {
+			Color color, Material material, double size) {
 		super(name, description, brand);
 		this.color = color;
 		this.material = material;
 		this.size = size;
 	}
 
-	public String getColor() {
+	public Color getColor() {
 		return color;
 	}
 
-	public String getMaterial() {
+	public Material getMaterial() {
 		return material;
 	}
 

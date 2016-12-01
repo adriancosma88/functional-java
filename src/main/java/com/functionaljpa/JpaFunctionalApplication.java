@@ -10,7 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import com.functionaljpa.domain.Brand;
+import com.functionaljpa.domain.Color;
 import com.functionaljpa.domain.Footwear;
+import com.functionaljpa.domain.Material;
 import com.functionaljpa.repository.FootwearRepository;
 
 @EntityScan({"com.functionaljpa.domain"})
@@ -28,9 +30,9 @@ public class JpaFunctionalApplication implements CommandLineRunner{
 		Brand nike = new Brand("Nike");
 		List<Footwear> footwearList = Arrays.asList(
 				new Footwear("Running Shoes", "Good Running Shoes", nike,
-						"Blue", "Synthetic", 41),
+						Color.BLUE, Material.TEXTILE, 41),
 				new Footwear("Tennis Shoes", "Good Running Shoes", nike,
-						"White", "Synthetic", 42)
+						Color.BLUE, Material.TEXTILE, 42)
 				);
 		
 		footwearRepository.save(footwearList);
