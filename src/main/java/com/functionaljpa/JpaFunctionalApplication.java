@@ -13,13 +13,14 @@ import com.functionaljpa.domain.Brand;
 import com.functionaljpa.domain.Color;
 import com.functionaljpa.domain.Footwear;
 import com.functionaljpa.domain.Material;
-import com.functionaljpa.repository.FootwearRepository;
+import com.functionaljpa.domain.Stock;
+import com.functionaljpa.repository.StockRepository;
 
 @EntityScan({"com.functionaljpa.domain"})
 @SpringBootApplication
 public class JpaFunctionalApplication implements CommandLineRunner{
 	@Autowired
-	private FootwearRepository footwearRepository;
+	private StockRepository stockRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(JpaFunctionalApplication.class, args);
@@ -28,15 +29,18 @@ public class JpaFunctionalApplication implements CommandLineRunner{
 	@Override
 	public void run(String... arg0) throws Exception {
 		Brand nike = new Brand("Nike");
-		List<Footwear> footwearList = Arrays.asList(
-				new Footwear("Running Shoes", "Good Running Shoes", nike,
-						Color.BLUE, Material.TEXTILE, 41),
-				new Footwear("Tennis Shoes", "Good Running Shoes", nike,
-						Color.BLUE, Material.TEXTILE, 42)
+		Footwear nikeRunningShoes = new Footwear("Running Shoes",
+				"Good Running Shoes", nike,	Material.TEXTILE);
+		List<Stock> stockList = Arrays.asList(
+				new Stock(nikeRunningShoes, Color.BLUE, 41, 20),
+				new Stock(nikeRunningShoes, Color.BLUE, 42, 15),
+				new Stock(nikeRunningShoes, Color.BLUE, 43, 10),
+				new Stock(nikeRunningShoes, Color.BLACK, 41, 12),
+				new Stock(nikeRunningShoes, Color.BLACK, 42, 15)
 				);
 		
-		footwearRepository.save(footwearList);
+		stockRepository.save(stockList);
 		
-		footwearRepository.findAll().forEach(System.out::println);
+		stockRepository.findAll().forEach(System.out::println);
 	}
 }
