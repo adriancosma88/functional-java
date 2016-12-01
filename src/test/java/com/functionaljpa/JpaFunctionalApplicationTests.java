@@ -43,4 +43,49 @@ public class JpaFunctionalApplicationTests {
 				.allMatch(stock -> stock.getQuantity() == 0));
 		//TODO 1: do assert foreach list item
 	}
+	
+	@Test
+	public void getListOfAllAvailableSizes() {
+		//TODO 2: list of all available sizes
+	}
+	
+	@Test
+	public void getListOfFootwearSize41() {
+		//TODO 3: list of all 41 size shoes
+	}
+	
+	@Test 
+	public void getListOfAllBrandsThatHaveBlueShoesOnStock() {
+		//TODO 4: Brands with blue shoes on stock. Use distinct?
+	}
+	
+	@Test 
+	public void getTheItemWithBiggestStock() {
+		//TODO 5: Get item with the highest stock
+	}
+	
+	@Test
+	public void getAllSize42BlackShoes() {
+		//TODO 6: Get all items that have size 42 on stock and are black
+	}
+	
+	@Test
+	public void countAllBlackShoes() {
+		//TODO 7: Count all black shoes.
+	}
+	
+	@Test
+	public void getAnyLacosteShoe() {
+		//TODO 8: get any lacoste shoe.
+	}
+	
+	@Test
+	public void getTop3StockItems() {
+		//TODO 9: get the first 3 items with the largest stock quantity.
+	}
+	
+	@Test
+	public void test() {
+		//TODO 10: write your own test
+	}
 }
