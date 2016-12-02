@@ -28,11 +28,7 @@ public class JpaFunctionalApplicationTests {
 	public void setup() {
 		stockService = new StockService(stockRepo);
 	}
-	
-	@Test
-	public void contextLoads() {
-	}
-	
+		
 	@Test
 	public void getOutOfStockListOfItems_allShouldHaveZeroQuantity() {
 		List<Stock> outOfStockItems = stockService.getAllOutOfStockItems();
@@ -40,7 +36,7 @@ public class JpaFunctionalApplicationTests {
 		
 		assertTrue("All out of stock item should have 0 quantity",
 				outOfStockItems.stream()
-				.allMatch(stock -> stock.getQuantity() == 0));
+					.allMatch(stock -> stock.getQuantity() == 0));
 		//TODO 1: do assert foreach list item
 	}
 	
@@ -76,7 +72,7 @@ public class JpaFunctionalApplicationTests {
 	
 	@Test
 	public void getAnyLacosteShoe() {
-		//TODO 8: get any lacoste shoe.
+		//TODO 8: get any lacoste shoe. (a single one)
 	}
 	
 	@Test
