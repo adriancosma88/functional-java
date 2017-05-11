@@ -1,7 +1,6 @@
 package com.functionaljpa;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -34,15 +33,16 @@ public class JpaFunctionalApplicationTests {
 		List<Stock> outOfStockItems = stockService.getAllOutOfStockItems();
 		assertEquals(2, outOfStockItems.size());
 		
-		assertTrue("All out of stock item should have 0 quantity",
 				outOfStockItems.stream()
-					.allMatch(stock -> stock.getQuantity() == 0));
-		//TODO 1: do assert foreach list item
+					.forEach(stock -> assertEquals("Stock " + stock.getStockId() + " has quatity <> 0" ,
+							0, stock.getQuantity()));
 	}
 	
 	@Test
 	public void getListOfAllAvailableSizes() {
-		//TODO 2: list of all available sizes
+		List<Double> availableSizes = stockService.getAvailableSizes("High Tops", "Lacoste");
+		assertEquals(1, availableSizes.size());
+		assertEquals(41.0, availableSizes.get(0), 0);
 	}
 	
 	@Test
